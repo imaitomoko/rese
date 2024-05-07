@@ -1,0 +1,22 @@
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__search {
+    width: 50%;
+    background-color: #fff;
+    box-shadow: 2px 2px 4px grey;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.search__box-ttl {
+    font-weight: bold;
+}
+
+.search__box {
+    display: flex;
+    pa
+}
+

@@ -1,0 +1,20 @@
+.background {
+    background: #E0FFFF;
+    max-width: 1230px;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 30px;
+}
+
+
+
