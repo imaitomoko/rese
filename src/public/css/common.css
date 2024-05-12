@@ -1,19 +1,25 @@
 .background {
-    background: #E0FFFF;
+    margin: 0 auto;
+    background: #F5FFFA;
     max-width: 1230px;
+    padding: 20px 50px;
 }
 
-.header__inner {
+.header {
     margin: 0 auto;
     padding: 20px 15px;
 }
 
-a {
+.header__inner {
+    width: 18%;
+}
+
+a .header__logo{
     text-decoration: none;
 }
 
 img {
-    width: 30px;
+    width: 100%;
 }
 
 

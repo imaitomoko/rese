@@ -1,14 +1,35 @@
-.header__inner {
-    display: flex;
-    justify-content: space-between;
-}
-
 .header__search {
-    width: 50%;
+    width: 600px;
     background-color: #fff;
     box-shadow: 2px 2px 4px grey;
-    border-radius: 3px;
-    padding: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.header__search-form {
+    display: flex;
+}
+
+.header__search-inner {
+    margin-right: 30px;
+    margin-left: 5px;
+}
+
+label {
+    font-weight: bold;
+    text-align: center;
+}
+
+select {
+    border: none;
+    width: 30px;
+}
+
+.search__form-input {
+    font-weight: bold;
+    border: none;
+    font-size: 18px;
 }
 
 .search__box-ttl {
@@ -17,6 +38,86 @@
 
 .search__box {
     display: flex;
-    pa
 }
+
+.flex__item {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrap {
+    max-width: 1230px;
+    margin: 0 auto;
+}
+
+.shop {
+    width: 24%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.shop__img img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.shop__content {
+    padding: 15px;
+}
+
+.shop__name {
+    line-height: 16px;
+    font-size: 22px;
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+
+.shop__info {
+    display: flex;
+    line-height: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.shop__area {
+    padding-right: 5px;
+}
+
+.shop__button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.shop__detail-submit {
+    padding: 5px 10px;
+    background: #4169E1;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+
+
+.heart {
+    color: black;
+    /* デフォルトの色（黒色） */
+}
+
+.favorite {
+    color: red;
+    /* お気に入りの時の色（赤色） */
+}
+
+.favorite_button {
+    border: none;
+}
+
 

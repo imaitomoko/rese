@@ -5,25 +5,65 @@
 @endsection
 
 @section('content')
-<div class="header__inner">
-    <div class="header__search">
-        <form class="search" action="">
-            <div class="search__box">
-                <p class="search__box-ttl">All area</p>
-                <select class="search__box-area" name="" id="">
-                    @foreach ($areas as $area)
-                    <option value="{{ $area['id'] }}">{{ $area['name'] }}</option>
-                    @endforeach
-                </select>
-                <p class="search__box-ttl">All genre</p>
-                <select class="search__box-genre" name="" id="">
-                    @foreach ($categories as $category)
-                    <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
-                    @endforeach
-                </select>
 
+    <div class="header__search">
+        <form class="header__search-form" id="searchForm" action="/search" method="GET">
+            @csrf
+            <div class="header__search-inner">
+                <label for="area_id">All area</label>
+                <select name="area_id" id="area_id" onchange="this.form.submit()">
+                <option value=""selected></option>
+                @foreach ($areas as $area)
+                <option value="{{ $area->id }}">{{ $area->area }}</option> <!-- 各エリアをオプションとして表示 -->
+                @endforeach
+                </select>
+            </div>
+            <div class="header__search-inner">
+                <label for="category_id">All genre</label>
+                <select name="category_id" id="category_id" onchange="this.form.submit()">
+                <option value=""selected></option>
+                @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->category }}</option> <!-- 各エリアをオプションとして表示 -->
+                @endforeach
+                </select>
+            </div>
+            <div class="header__search-inner">
+                <input class="search__form-input" type="text" name="keyword" value="{{ old('keyword') }}" placeholder="Search...">
             </div>
         </form>
     </div>
+
+
+
+<div class="flex__item wrap">
+    @foreach ($shops as $shop)
+    <div class="shop">
+        <div class="shop__img">
+            <img src="{{ $shop->image }}" alt="{{ $shop->shop_name }}">
+        </div>
+        <div class="shop__content">
+            <p class="shop__name">{{ $shop->shop_name }}</p>
+            <div class="shop__info">
+                <p class="shop__area">#{{ $shop->area }}</p>
+                <p class="shop__category">#{{ $shop->category }}</p>
+            </div>
+            <div class="shop__button">
+                <div class="shop__detail">
+                    <button class="shop__detail-submit">詳しく見る</button>
+                </div>
+                <div class="shop__favorite">
+                    <button class="favorite_button" id="favoriteButton" onclick="toggleFavorite()">
+                        <span id="heartIcon" class="heart <?php echo $favoriteStatus ? 'favorite' : ''; ?>">&#9825;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
 </div>
+
+
+
+
+
 @endsection

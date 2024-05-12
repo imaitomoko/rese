@@ -16,3 +16,5 @@ use App\Http\Controllers\ReservationController;
 */
 
 Route::get('/', [ShopController::class, 'index']);
+Route::get('/search', [ShopController::class, 'search']);
+Route::get('/detail', [ShopController::class, 'detail']);

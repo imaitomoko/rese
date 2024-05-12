@@ -32,4 +32,25 @@ class Shop extends Model
     public function favorites(){
         return $this->hasMany('App\Models\Favorite');
     }
+
+    public function scopeAreaSearch($query, $area_id)
+    {
+        if(!empty($area_id)) {
+            $query->where('area_id', $area_id);
+        }
+    }
+
+    public function scopeCategorySearch($query, $category_id)
+    {
+        if(!empty($category_id)) {
+            $query->where('category_id', $category_id);
+        }
+    }
+
+    public function scopeKeywordSearch($query, $keyword)
+    {
+        if(!empty($keyword)) {
+            $query->where('shop_name', 'like', '%'. $keyword . '%');
+        }
+    }
 }

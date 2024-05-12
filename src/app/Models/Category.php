@@ -14,4 +14,5 @@ class Category extends Model
     public function shops(){
         return $this->hasMany('App\Models\Shop');
     }
+
 }

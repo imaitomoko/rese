@@ -1,0 +1,149 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content__shop {
+    width: 45%;
+    margin: 0 auto;
+}
+
+.content__shop-name {
+    display: flex;
+    margin-top: 20px 0;
+}
+
+.shop__back {
+    background-color: #fff;
+    border: none;
+    line-height: 20px;
+    box-shadow: 2px 2px 4px grey;
+    align-items: baseline;
+    margin-right: 10px;
+}
+
+.shop_name {
+    font-size: 40px;
+    font-weight: bold;
+    padding-left: 10px;
+    align-items: center;
+    line-height: 20px;
+}
+
+.content__shop-img {
+    width: 100%;
+}
+
+.content__shop-info {
+    display: flex;
+    margin-top: 10px;
+}
+
+.content__area {
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.content__category {
+    font-weight: bold;
+}
+
+.content__text {
+    font-weight: bold;
+}
+
+.content
+
+.content__reservation {
+    position: relative;
+    width: 550px;
+    background-color: #4169E1;
+    box-shadow: 2px 2px 4px grey;
+    border-radius: 5px;
+    height: 600px;
+}
+
+.reservation__form {
+    width: 100%;
+    padding: 30px;
+}
+
+.reservation__ttl {
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.form__date {
+    background: #fff;
+    width: 35%;
+    border: none;
+    height: 25px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.form__time {
+    background: #fff;
+    width: 100%;
+    border: none;
+    height: 25px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.form__number {
+    background: #fff;
+    width: 100%;
+    border: none;
+    height: 25px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.form__index {
+    background: #6495ED;
+    padding: 10px;
+    width: 95%;
+    border-radius: 5px;
+    margin-bottom: 145px;
+}
+
+.index__shop {
+    display: flex;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.index__shop-ttl {
+    color: #fff;
+    width: 100px;
+    line-height: 1;
+}
+
+.index__shop-text {
+    color: #fff;
+    width: 100px;
+    line-height: 1;
+}
+
+.form__button {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 550px;
+    background-color: #0000CD;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 0 0 5px 5px;
+}
+
+
+
+
