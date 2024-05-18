@@ -49,7 +49,7 @@
             </div>
             <div class="shop__button">
                 <div class="shop__detail">
-                    <button class="shop__detail-submit">詳しく見る</button>
+                    <a class="shop__detail-submit" href="{{ route('detail', ['shop_id' => $shop->id]) }}">詳しく見る</a>
                 </div>
                 <div class="shop__favorite">
                     <button class="favorite_button" id="favoriteButton" onclick="toggleFavorite()">
