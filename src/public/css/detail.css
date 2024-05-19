@@ -1,11 +1,12 @@
 .content {
+    margin-top: 50px;
     display: flex;
     justify-content: space-between;
 }
 
 .content__shop {
     width: 45%;
-    margin: 0 auto;
+    margin: 25px auto;
 }
 
 .content__shop-name {
@@ -20,6 +21,7 @@
     box-shadow: 2px 2px 4px grey;
     align-items: baseline;
     margin-right: 20px;
+    width: 40px;
 }
 
 .shop_name {
@@ -30,8 +32,9 @@
     line-height: 20px;
 }
 
-.content__shop-img {
+.content__shop-img img{
     width: 100%;
+    margin-top: 20px;
 }
 
 .content__shop-info {
@@ -57,7 +60,7 @@
 .content__reservation {
     position: relative;
     width: 550px;
-    background-color: #4169E1;
+    background-color: #4169e1;
     box-shadow: 2px 2px 4px grey;
     border-radius: 5px;
     height: 600px;

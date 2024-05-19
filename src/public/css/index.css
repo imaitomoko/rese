@@ -4,7 +4,7 @@
     box-shadow: 2px 2px 4px grey;
     border-radius: 5px;
     padding: 10px;
-    margin-bottom: 20px;
+    margin: 20px 0 20px auto;
 }
 
 .header__search-form {

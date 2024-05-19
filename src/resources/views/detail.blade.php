@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="content__reservation">
-            <form class="reservation__form" action="">
+            <form class="reservation__form" action="/done">
                 <h2 class="reservation__ttl">予約</h2>
                 <input class="form__date" type="date" value="{{ $today }}">
                 <select class="form__time" name="time" >

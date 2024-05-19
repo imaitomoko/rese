@@ -12,13 +12,37 @@
     @yield('css')
 </head>
 
+
+
 <body>
     <div class="background">
         <header class="header">
             <div class="header__inner">
-                <a class="header__logo" href="/">
-                    <img src="{{ asset('Group 2.png') }}" alt="ロゴ">
-                </a>
+                <button class="menu-button hamburger" id="js-menu-button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                </button>
+                <h1 class="header__logo">
+                    <a href="/">Rese</a>
+                </h1>
+                <nav class="header__nav nav" id="js-nav">
+                    <ul class="nav__items nav-items">
+                        @guest
+                            <li class="nav-items__item"><a href="/">Home</a></li>
+                            <li class="nav-items__item"><a href="/register">Registration</a></li>
+                            <li class="nav-items__item"><a href="/login">Login</a></li>
+                        @else
+                            <li class="nav-items__item"><a href="/">Home</a></li>
+                            <li class="nav-items__item">
+                                <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                                @csrf
+                                </form>
+                                <a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();>Logout</a></li>
+                            <li class="nav-items__item"><a href="/mypage">Mypage</a></li>
+                        @endguest
+                    </ul>
+                </nav>
             </div>
         </header>
 
@@ -26,6 +50,17 @@
             @yield('content')
         </main>
     </div>
+
+    <script>
+    const ham = document.querySelector('#js-menu-button');
+    const nav = document.querySelector('#js-nav');
+
+    ham.addEventListener('click', function () {
+        ham.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    </script>
 </body>
 
 </html>
