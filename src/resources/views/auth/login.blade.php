@@ -7,14 +7,14 @@
 @section('content')
 <div class="login__content">
     <div class="login-form__heading">
-        <h2>login</h2>
+        <h3>login</h3>
     </div>
     <form class="form" action="/login" method="post">
         @csrf
         <div class="form__group">
             <div class="form__group-content">
                 <div class="form__group-icon">
-                    <i class="fa-solid fa-envelope"></i>
+                    <i class="fas fa-envelope fa-2x"></i>
                 </div>
                 <div class="form__input--text">
                     <input class="input" type="email" name="email" value="{{ old('email') }}" placeholder="Email"/>
@@ -29,7 +29,7 @@
         <div class="form__group">
             <div class="form__group-content">
                 <div class="form__group-icon">
-                    <i class="fa-solid fa-lock"></i>
+                    <i class="fas fa-lock fa-2x"></i>
                 </div>
                 <div class="form__input--text">
                     <input class="input" type="password" name="password" placeholder="Password" />

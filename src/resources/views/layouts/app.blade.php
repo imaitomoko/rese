@@ -35,10 +35,11 @@
                         @else
                             <li class="nav-items__item"><a href="/">Home</a></li>
                             <li class="nav-items__item">
-                                <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                                <form id="logout-form" action="/logout" method="POST">
                                 @csrf
+                                <button class="nav-items__button">Logout</button>
                                 </form>
-                                <a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();>Logout</a></li>
+                            </li>
                             <li class="nav-items__item"><a href="/mypage">Mypage</a></li>
                         @endguest
                     </ul>

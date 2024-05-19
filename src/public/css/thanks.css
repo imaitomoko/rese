@@ -1,0 +1,21 @@
+.thanks__content {
+    margin: 150px auto;
+    width: 550px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #999;
+    background-color: #fff;
+}
+
+h1 {
+    padding-top: 70px;
+    text-align: center;
+}
+
+.btn btn-primary {
+    color: #fff;
+    background-color: #4169E1;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 30px auto;
+}

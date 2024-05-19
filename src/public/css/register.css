@@ -47,14 +47,13 @@ h3 {
 }
 
 .form__error {
-    height: 30px;
+    height: 20px;
     color: #ff0000;
     text-align: left;
 }
 
 .form__button {
     text-align: right;
-
 }
 
 .form__button-submit {
