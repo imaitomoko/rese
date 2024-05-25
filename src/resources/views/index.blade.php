@@ -52,18 +52,49 @@
                     <a class="shop__detail-submit" href="{{ route('detail', ['shop_id' => $shop->id]) }}">詳しく見る</a>
                 </div>
                 <div class="shop__favorite">
-                    <button class="favorite_button" id="favoriteButton" onclick="toggleFavorite()">
-                        <span id="heartIcon" class="heart <?php echo $favoriteStatus ? 'favorite' : ''; ?>">&#9825;</span>
+                    <button class="favorite_button" onclick="toggleFavorite({{ $shop->id }}, {{ auth()->check() ? 'true' : 'false' }})">
+                        <span id="heartIcon-{{ $shop->id }}" class="heart {{ $shop->isFavorite ? 'favorite' : '' }}">&#9825;</span>
                     </button>
                 </div>
             </div>
         </div>
     </div>
     @endforeach
+
+    <script>
+        function toggleFavorite(shopId, isLoggedIn) {
+            var heartIcon = document.getElementById('heartIcon-' + shopId);
+            heartIcon.classList.toggle('favorite');
+
+            if (isLoggedIn) {
+                var isFavorite = heartIcon.classList.contains('favorite') ? 1 : 0;
+                saveFavorite(shopId, isFavorite);
+            } 
+        }
+
+        function saveFavorite(shopId, isFavorite) {
+            fetch("{{ route('favorite.toggle') }}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({
+                    shop_id: shopId,
+                    is_favorite: isFavorite
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
+    </script>
 </div>
-
-
-
 
 
 @endsection

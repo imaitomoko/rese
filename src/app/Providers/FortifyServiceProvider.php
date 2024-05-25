@@ -20,7 +20,6 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
     }
 
     /**
@@ -29,15 +28,11 @@ class FortifyServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Fortify::createUsersUsing(CreateNewUser::class);
-            Fortify::registerView(function () {
-                return view('auth.register');
-            });
-
-            Fortify::redirects('register', '/thanks');
 
         Fortify::loginView(function () {
             return view('auth.login');
         });
+        Fortify::redirects('register', '/thanks');
 
         RateLimiter::for('login', function (Request $request) {
             $email = (string) $request->email;

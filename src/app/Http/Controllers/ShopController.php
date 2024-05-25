@@ -43,7 +43,7 @@ class ShopController extends Controller
     {
         $shop = Shop::join('areas', 'shops.area_id', '=', 'areas.id')
             ->join('categories', 'shops.category_id', '=', 'categories.id')
-            ->select('shops.shop_name', 'shops.image', 'areas.area', 'categories.category', 'shops.detail')
+            ->select('shops.shop_name', 'shops.image', 'areas.area', 'categories.category', 'shops.detail','shops.id')
             ->where('shops.id', $shop_id)
             ->first();
 

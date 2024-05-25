@@ -50,9 +50,11 @@
             </div>
         </div>
         <div class="content__reservation">
-            <form class="reservation__form" action="/done">
+            <form class="reservation__form" action="{{ route('store') }}" method="POST">
+                @csrf
                 <h2 class="reservation__ttl">予約</h2>
-                <input class="form__date" type="date" value="{{ $today }}">
+                <input type="hidden" name="shop_id" value="{{ $shop->id }}">
+                <input class="form__date" type="date" name="date" value="{{ $today }}">
                 <select class="form__time" name="time" >
                     <option value=""></option>
                     @foreach ($times as $time)
@@ -82,7 +84,7 @@
                         <p class="index__shop-text" id="selectedNumber">1人</p>
                     </div>
                 </div>
-                <input class="form__button"type="button" value="予約する">
+                <input class="form__button" type="submit" value="予約する">
             </form>
         </div>
     </div>

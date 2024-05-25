@@ -19,4 +19,12 @@ use App\Http\Controllers\ThanksController;
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/search', [ShopController::class, 'search']);
 Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('detail');
-Route::get('/thanks', [ThanksController::class, 'show'])->name('thanks');
+Route::get('/thanks', function () {
+    return view('thanks');
+})->name('thanks');
+
+Route::middleware(['auth'])->post('/store', [ReservationController::class, 'store'])->name('store');
+Route::middleware(['auth'])->get('/done', [ReservationController::class, 'done'])->name('done');
+Route::middleware(['auth'])->post('/favorite', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
+
+

@@ -1,0 +1,27 @@
+.done__content {
+    margin: 150px auto;
+    width: 550px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #999;
+    background-color: #fff;
+}
+
+h2 {
+    padding-top: 70px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.back {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 120px;
+}
+
+.back__button {
+    color: #fff;
+    background-color: #4169E1;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}

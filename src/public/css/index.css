@@ -104,20 +104,21 @@ select {
     cursor: pointer;
 }
 
-
-
 .heart {
-    color: black;
+    font-size: 2em;
+    color: darkgray;
+    cursor: pointer;
     /* デフォルトの色（黒色） */
 }
 
-.favorite {
+.heart.favorite {
     color: red;
     /* お気に入りの時の色（赤色） */
 }
 
 .favorite_button {
     border: none;
+    background: none;
 }
 
 
