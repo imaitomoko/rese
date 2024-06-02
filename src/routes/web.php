@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ThanksController;
+use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::get('/thanks', function () {
 
 Route::middleware(['auth'])->post('/store', [ReservationController::class, 'store'])->name('store');
 Route::middleware(['auth'])->get('/done', [ReservationController::class, 'done'])->name('done');
-Route::middleware(['auth'])->post('/favorite', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
+Route::post('/favorite/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
+
 
 

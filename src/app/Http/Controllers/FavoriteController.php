@@ -4,27 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Favorite;
+use App\Models\Shop;
 use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
-    public function toggleFavorite(Request $request)
+    public function toggleFavorite(Request $request, $shopId)
     {
         $user = Auth::user();
 
-        $shopId = $request->input('shop_id');
-        $isFavorite = $request->input('is_favorite');
+        if ($user) {
+            $favorite = Favorite::where('user_id', $user->id)->where('shop_id', $shopId)->first();
 
+            if ($favorite) {
+                $favorite->delete();
+                return response()->json(['status' => 'removed']);
+            } else {
+                Favorite::create([
+                    'user_id' => $user->id,
+                    'shop_id' => $shopId,
+                ]);
+                return response()->json(['status' => 'added']);
+            }
+        } else {
+            return response()->json(['status' => 'guest']);
+        }
         
-        $favorite = Favorite::firstOrNew([
-            'user_id' => $user->id,
-            'shop_id' =>$shopId
-        ]);
-
-        $favorite->is_favorite = $isFavorite;
-        $favorite->save();
-
-        return response()->json(['message' => 'Favorite toggled successfully']);
     }
-    //
 }

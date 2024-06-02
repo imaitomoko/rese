@@ -41,11 +41,31 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    //多対多のりレーションを描く
     public function favorites(){
-        return $this->hasMany('App\Models\Favorite');
+        return $this->belongsToMany('App\Models\Shop','favorites','user_id','shop_id')->withTimestamps();
+    }
+    //この店に対してすでにfavoriteしたかどうかを判別
+    public function isFavorite($shopId){
+        return $this->favorite()->where('shop_id',$shopId)->exists();
+    }
+    //isFavoriteを使って、すでにfavoriteしたか確認したと、いいねする
+    public function favorite($shopId){
+        if($this->isFavorite($shopId)){
+            //もしすでにお気に入りしてたら何もしない
+        } else {
+            $this->favorites()->attach($shopId);
+        }
     }
 
+    //isFavoriteを使って、すでにfavoriteしたか確認して、もししていたら解除する
+    public function unfavorite($shopId){
+        if($this->isFavorite($shopId)){
+            $this->favorite()->detach($shopId);
+        } else {
+
+        }
+    }
     public function reservations(){
         return $this->hasMany('App\Models\Rreservation');
     }

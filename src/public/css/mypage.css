@@ -1,0 +1,30 @@
+.mypage__content {
+    margin-top: 50px;
+}
+
+.mypage__heading {
+    width: 100%;
+    margin: 20px auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.mypage__item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mypage__reservation {
+    width: 40%;
+    padding: 20px;
+}
+
+.reservation___card {
+    width: 90%;
+    background-color: #4169E1;
+    box-shadow: 2px 2px 4px grey;
+    border-radius: 5px;
+    padding: 20px;
+}

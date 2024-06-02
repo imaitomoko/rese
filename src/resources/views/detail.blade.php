@@ -25,7 +25,7 @@
                 document.getElementById('selectedNumber').innerText = this.value + "人";
             });
         });
-    </script>
+</script>
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/detail.css') }}">

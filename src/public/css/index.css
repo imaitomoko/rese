@@ -54,7 +54,7 @@ select {
     width: 24%;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
-    margin-right: 10px;
+    margin-right: 11px;
     border-radius: 5px;
     background: #fff;
 }
@@ -93,30 +93,30 @@ select {
 }
 
 .shop__detail-submit {
-    padding: 5px 10px;
+    padding: 10px 15px;
     background: #4169E1;
     color: #fff;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     text-align: center;
     text-decoration: none;
     font-size: 12px;
     cursor: pointer;
 }
 
-.heart {
-    font-size: 2em;
+.fa-heart {
+    font-size: 2em !important;
     color: darkgray;
     cursor: pointer;
-    /* デフォルトの色（黒色） */
+    /* 通常の色 */
 }
 
-.heart.favorite {
+.fa-heart.active {
     color: red;
-    /* お気に入りの時の色（赤色） */
+    /* アクティブの色 */
 }
 
-.favorite_button {
+.favorite-button {
     border: none;
     background: none;
 }

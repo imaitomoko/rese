@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Favorite;
 
 class Shop extends Model
 {
@@ -52,5 +53,10 @@ class Shop extends Model
         if(!empty($keyword)) {
             $query->where('shop_name', 'like', '%'. $keyword . '%');
         }
+    }
+
+    public function isFavoritedBy($user)
+    {
+        return Favorite::where('user_id', $user->id)->where('shop_id', $this->id)->exists();
     }
 }
