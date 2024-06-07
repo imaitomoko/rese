@@ -5,6 +5,8 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\MypageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +28,11 @@ Route::get('/thanks', function () {
 
 Route::middleware(['auth'])->post('/store', [ReservationController::class, 'store'])->name('store');
 Route::middleware(['auth'])->get('/done', [ReservationController::class, 'done'])->name('done');
+Route::middleware(['auth'])->delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+
 Route::post('/favorite/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
+
+Route::middleware(['auth'])->get('/mypage', [MypageController::class, 'index'])->name('index');
 
 
 

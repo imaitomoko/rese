@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="header__search">
-        <form class="header__search-form" id="searchForm" action="/search" method="GET">
+    <form class="header__search-form" id="searchForm" action="/search" method="GET">
             @csrf
         <div class="header__search-inner">
             <label for="area_id">All area</label>

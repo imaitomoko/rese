@@ -1,30 +1,154 @@
-.mypage__content {
-    margin-top: 50px;
+.content {
+    max-width: 1230px;
 }
 
 .mypage__heading {
-    width: 100%;
-    margin: 20px auto;
+    margin-top: 60px;
+    margin-bottom: 30px;
 }
 
-h1 {
+.user_name {
     text-align: center;
 }
 
 .mypage__item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: left;
+}
+
+.mypage__reservation {
+    width: 45%;
+    padding: 10px;
+}
+
+.reservation__card-heading {
     display: flex;
     justify-content: space-between;
 }
 
-.mypage__reservation {
-    width: 40%;
-    padding: 20px;
+.large-icon {
+    font-size: 2em;
 }
 
-.reservation___card {
-    width: 90%;
+.fa-trash {
+    color: #fff;
+    cursor: pointer;
+}
+
+.delete-button {
+    border: none;
+    background: none;
+}
+
+.reservation__card {
+    width: 100%;
     background-color: #4169E1;
     box-shadow: 2px 2px 4px grey;
     border-radius: 5px;
-    padding: 20px;
+    padding: 30px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.reservation__card-heading {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.card-heading_title {
+    display: flex;
+    align-items: center;
+}
+
+.card-heading_title .icon {
+    margin-right: 10px;
+}
+
+.card-heading_name {
+    padding-left: 30px;
+    font-size: 18px;
+}
+
+.index__shop {
+    display: flex;
+    height: 40px;
+}
+
+.index__shop-ttl {
+    width: 120px;
+}
+
+.mypage__favorite {
+    width: 55%;
+    padding: 10px 40px;
+}
+
+.favorite__items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrap {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.shop {
+    width: 45%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    margin-right: 30px;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.shop__img img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.shop__content {
+    padding: 15px;
+}
+
+.shop__name {
+    line-height: 15px;
+    font-size: 22px;
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+
+.shop__info {
+    display: flex;
+    line-height: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.shop__area {
+    padding-right: 5px;
+}
+
+.shop__button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.shop__detail-submit {
+    padding: 10px 15px;
+    background: #4169E1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
 }

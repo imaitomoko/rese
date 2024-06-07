@@ -45,4 +45,18 @@ class ReservationController extends Controller
         
         return view('done', compact('shop'));
     }
+
+    public function destroy(Reservation $reservation)
+    {
+        // ログインユーザーが所有している予約かどうかを確認
+        if ($reservation->user_id !== Auth::id()) {
+            return response()->json(['error' => 'Unauthorized'], 403);
+        }
+
+        $reservation->delete();
+
+        return response()->json(['success' => 'Reservation deleted successfully']);
+    }
+
+
 }

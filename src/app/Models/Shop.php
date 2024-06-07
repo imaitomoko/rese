@@ -27,11 +27,11 @@ class Shop extends Model
     }
 
     public function reservations(){
-        return $this->hasMany('App\Models\Reservation');
+        return $this->hasMany(Reservation::class);
     }
 
     public function favorites(){
-        return $this->hasMany('App\Models\Favorite');
+        return $this->hasMany(Favorite::class);
     }
 
     public function scopeAreaSearch($query, $area_id)
