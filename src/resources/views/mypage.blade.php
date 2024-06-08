@@ -71,6 +71,15 @@ use Carbon\Carbon;
                                 <a class="shop__detail-submit" href="{{ route('detail', ['shop_id' => $shop->id]) }}">詳しく見る</a>
                             </div>
                             <div class="shop__favorite">
+                                @auth
+                                    <button class="favorite-button" data-shop-id="{{ $shop->id }}">
+                                        <i class="fa {{ $shop->isFavoritedBy(Auth::user()) ? 'fas fa-heart active' : 'fas fa-heart' }}"></i>
+                                    </button>
+                                @else
+                                    <button class="favorite-button" data-shop-id="{{ $shop->id }}">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                @endauth
 
                             </div>
                         </div>
@@ -117,6 +126,44 @@ $(document).ready(function() {
     }
 
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const favoriteButtons = document.querySelectorAll('.favorite-button');
+    
+    favoriteButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const shopId = this.getAttribute('data-shop-id');
+            const heartIcon = this.querySelector('i');
+            const shopElement = this.closest('.shop');
+            const isLoggedIn = {{ Auth::check() ? 'true' : 'false' }};
+
+            if (isLoggedIn) {
+                fetch(`/favorite/${shopId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    },
+                    body: JSON.stringify({})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'added') {
+                        heartIcon.classList.add('active');
+                    } else if (data.status === 'removed') {
+                        heartIcon.classList.remove('active');
+                        // ショップエレメントを削除
+                        shopElement.remove();
+                    }
+                });
+            } else {
+                window.location.href = "{{ route('login') }}";
+            }
+        });
+    });
+});
+
+
 </script>
 
 

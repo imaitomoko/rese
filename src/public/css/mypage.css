@@ -152,3 +152,20 @@ h2 {
     font-size: 12px;
     cursor: pointer;
 }
+
+.fa-heart {
+    font-size: 2em !important;
+    color: darkgray;
+    cursor: pointer;
+    /* 通常の色 */
+}
+
+.fa-heart.active {
+    color: red;
+    /* アクティブの色 */
+}
+
+.favorite-button {
+    border: none;
+    background: none;
+}

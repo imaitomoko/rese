@@ -77,8 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             const shopId = this.getAttribute('data-shop-id');
             const heartIcon = this.querySelector('i');
+            const isLoggedIn = {{ Auth::check() ? 'true' : 'false' }};
 
-            @auth
+            if (isLoggedIn) {
                 fetch(`/favorite/${shopId}`, {
                     method: 'POST',
                     headers: {
@@ -95,9 +96,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         heartIcon.classList.remove('active');
                     }
                 });
-            @else
-                heartIcon.classList.toggle('active');
-            @endauth
+            } else {
+                window.location.href = "{{ route('login') }}";
+            }
         });
     });
 });

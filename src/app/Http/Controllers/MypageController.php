@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Reservation; 
 use App\Models\Shop; 
 use App\MOdels\Favorite;
+use Illuminate\Support\Facades\Auth;
 
 class MypageController extends Controller
 {
@@ -24,10 +25,8 @@ class MypageController extends Controller
             ->select('shops.id', 'shops.shop_name', 'shops.image', 'areas.area', 'categories.category')
             ->get();
 
-    
-        
-
         return view('mypage', compact('reservations', 'shops'));
     }
+
     
 }

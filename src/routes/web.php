@@ -30,9 +30,10 @@ Route::middleware(['auth'])->post('/store', [ReservationController::class, 'stor
 Route::middleware(['auth'])->get('/done', [ReservationController::class, 'done'])->name('done');
 Route::middleware(['auth'])->delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 
-Route::post('/favorite/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
-
-Route::middleware(['auth'])->get('/mypage', [MypageController::class, 'index'])->name('index');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/mypage', [MypageController::class, 'index'])->name('index');
+    Route::post('/favorite/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
+});
 
 
 
