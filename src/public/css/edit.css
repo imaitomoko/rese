@@ -1,0 +1,66 @@
+.content {
+    max-width: 1230px;
+}
+
+.content-title {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.reservation__card {
+    width: 600px;
+    background-color: #4169E1;
+    box-shadow: 2px 2px 4px grey;
+    border-radius: 5px;
+    padding: 30px;
+    color: #fff;
+    margin-bottom: 15px;
+    margin: 20px auto;
+}
+
+.form-group {
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.form-ttl {
+    width: 100px;
+}
+
+.form-control {
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.submit-button {
+    text-align: center;
+    margin: 20px;
+}
+
+.btn {
+    background-color: darkblue;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    padding: 5px 30px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.back {
+    margin: 30px;
+    text-align: center;
+}
+
+.back-button {
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #4169E1;
+}

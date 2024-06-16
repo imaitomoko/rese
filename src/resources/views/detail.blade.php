@@ -56,7 +56,6 @@
                 <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                 <input class="form__date" type="date" name="date" value="{{ $today }}">
                 <select class="form__time" name="time" >
-                    <option value=""></option>
                     @foreach ($times as $time)
                     <option value="{{ $time }}" {{ $time == $defaultTime ? 'selected' : '' }}>{{ $time }}</option>
                     @endforeach

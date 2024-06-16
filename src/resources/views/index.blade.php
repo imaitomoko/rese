@@ -8,14 +8,14 @@
 
 <div class="header__search">
     <form class="header__search-form" id="searchForm" action="/search" method="GET">
-            @csrf
+        @csrf
         <div class="header__search-inner">
             <label for="area_id">All area</label>
             <select name="area_id" id="area_id" onchange="this.form.submit()">
-            <option value=""selected></option>
-            @foreach ($areas as $area)
-            <option value="{{ $area->id }}">{{ $area->area }}</option> <!-- 各エリアをオプションとして表示 -->
-            @endforeach
+                <option value=""selected></option>
+                @foreach ($areas as $area)
+                <option value="{{ $area->id }}">{{ $area->area }}</option> 
+                @endforeach
             </select>
         </div>
         <div class="header__search-inner">
@@ -23,7 +23,7 @@
             <select name="category_id" id="category_id" onchange="this.form.submit()">
             <option value=""selected></option>
             @foreach ($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->category }}</option> <!-- 各エリアをオプションとして表示 -->
+            <option value="{{ $category->id }}">{{ $category->category }}</option> 
             @endforeach
             </select>
         </div>

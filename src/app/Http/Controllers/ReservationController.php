@@ -58,5 +58,28 @@ class ReservationController extends Controller
         return response()->json(['success' => 'Reservation deleted successfully']);
     }
 
+    public function edit($id)
+    {
+        $reservation = Reservation::findOrFail($id);
+        return view('edit', compact('reservation'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $reservation = Reservation::findOrFail($id);
+        
+        $request->validate([
+            'date' => 'required|date',
+            'time' => 'required|date_format:H:i',
+            'number' => 'required|integer|min:1',
+        ]);
+
+        $reservation->date = $request->input('date');
+        $reservation->time = $request->input('time');
+        $reservation->number = $request->input('number');
+        $reservation->save();
+
+        return redirect()->route('mypage.edit', ['id' => $id])->with('success', '予約が更新されました');
+    }
 
 }

@@ -27,6 +27,12 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        parent::boot();
+
+        // ユーザー登録後のリダイレクト先をカスタマイズ
+        Event::listen(Registered::class, function ($event) {
+            return redirect('/thanks');
+        });
         //
     }
 }

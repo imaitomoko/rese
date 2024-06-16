@@ -21,14 +21,21 @@ use Carbon\Carbon;
                 <div class="reservation__card-heading">
                     <div class="card-heading_title">
                         <div class="icon">
-                            <i class="fas fa-solid fa-clock large-icon"></i>
+                            <i class="fas fa-solid fa-clock"></i>
                         </div>
                         <p class="card-heading_name">予約{{ $index + 1 }}</p>
                     </div>
-                    <div class="card-heading_delete">
-                        <button class="delete-button" data-id="{{ $reservation->id }}">
-                            <i class="fas fa-solid fa-trash large-icon"></i>
-                        </button>
+                    <div class="card-heading_edit">
+                        <div class="card-heading_delete">
+                            <button class="delete-button" data-id="{{ $reservation->id }}">
+                            <i class="fas fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                        <div class="card-heading_update">
+                            <a class="update-button" href="{{ route('mypage.edit', ['id' => $reservation->id]) }}">
+                            <i class="fas fa-edit"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="form__index">
@@ -72,18 +79,16 @@ use Carbon\Carbon;
                             </div>
                             <div class="shop__favorite">
                                 @auth
-                                    <button class="favorite-button" data-shop-id="{{ $shop->id }}">
-                                        <i class="fa {{ $shop->isFavoritedBy(Auth::user()) ? 'fas fa-heart active' : 'fas fa-heart' }}"></i>
-                                    </button>
+                                <button class="favorite-button" data-shop-id="{{ $shop->id }}">
+                                    <i class="fa {{ $shop->isFavoritedBy(Auth::user()) ? 'fas fa-heart active' : 'fas fa-heart' }}"></i>
+                                </button>
                                 @else
-                                    <button class="favorite-button" data-shop-id="{{ $shop->id }}">
-                                        <i class="fas fa-heart"></i>
-                                    </button>
+                                <button class="favorite-button" data-shop-id="{{ $shop->id }}">
+                                    <i class="fas fa-heart"></i>
+                                </button>
                                 @endauth
-
                             </div>
                         </div>
-
                     </div>
                 </div>
                 @endforeach
@@ -162,10 +167,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
-
 </script>
-
-
 @endsection
 

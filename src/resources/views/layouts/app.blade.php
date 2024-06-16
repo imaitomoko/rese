@@ -13,8 +13,6 @@
     @yield('css')
 </head>
 
-
-
 <body>
     <div class="background">
         <header class="header">
@@ -30,18 +28,18 @@
                 <nav class="header__nav nav" id="js-nav">
                     <ul class="nav__items nav-items">
                         @guest
-                            <li class="nav-items__item"><a href="/">Home</a></li>
-                            <li class="nav-items__item"><a href="/register">Registration</a></li>
-                            <li class="nav-items__item"><a href="/login">Login</a></li>
+                        <li class="nav-items__item"><a href="/">Home</a></li>
+                        <li class="nav-items__item"><a href="/register">Registration</a></li>
+                        <li class="nav-items__item"><a href="/login">Login</a></li>
                         @else
-                            <li class="nav-items__item"><a href="/">Home</a></li>
-                            <li class="nav-items__item">
-                                <form id="logout-form" action="/logout" method="POST">
-                                @csrf
+                        <li class="nav-items__item"><a href="/">Home</a></li>
+                        <li class="nav-items__item">
+                            <form id="logout-form" action="/logout" method="POST">
+                            @csrf
                                 <button class="nav-items__button">Logout</button>
-                                </form>
-                            </li>
-                            <li class="nav-items__item"><a href="/mypage">Mypage</a></li>
+                            </form>
+                        </li>
+                        <li class="nav-items__item"><a href="/mypage">Mypage</a></li>
                         @endguest
                     </ul>
                 </nav>
@@ -65,5 +63,4 @@
     </script>
     @yield('scripts')
 </body>
-
 </html>

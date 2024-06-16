@@ -33,6 +33,8 @@ Route::middleware(['auth'])->delete('/reservations/{reservation}', [ReservationC
 Route::middleware(['auth'])->group(function () {
     Route::get('/mypage', [MypageController::class, 'index'])->name('index');
     Route::post('/favorite/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
+    Route::get('/mypage/edit/{id}', [ReservationController::class, 'edit'])->name('mypage.edit');
+    Route::put('/mypage/update/{id}', [ReservationController::class, 'update'])->name('mypage.update');
 });
 
 
