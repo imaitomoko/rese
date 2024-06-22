@@ -54,7 +54,7 @@
                 @csrf
                 <h2 class="reservation__ttl">予約</h2>
                 <input type="hidden" name="shop_id" value="{{ $shop->id }}">
-                <input class="form__date" type="date" name="date" value="{{ $today }}">
+                <input class="form__date" type="date" name="date" value="{{ $today }}" min="{{ $today }}">
                 <select class="form__time" name="time" >
                     @foreach ($times as $time)
                     <option value="{{ $time }}" {{ $time == $defaultTime ? 'selected' : '' }}>{{ $time }}</option>

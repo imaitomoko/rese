@@ -19,7 +19,10 @@
             @method('PUT')
             <div class="form-group">
                 <label class="form-ttl" for="date">Date</label>
-                <input type="date" id="date" name="date" class="form-control" value="{{ $reservation->date }}">
+                @php
+                $today = date('Y-m-d');
+                @endphp
+                <input type="date" id="date" name="date" class="form-control" value="{{ $reservation->date }}" min="{{ $today }}">
             </div>
             <div class="form-group">
                 <label class="form-ttl" for="time">Time</label>

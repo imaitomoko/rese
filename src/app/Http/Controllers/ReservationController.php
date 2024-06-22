@@ -8,11 +8,14 @@ use App\Models\Reservation;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use App\Http\Requests\ReservationRequest;
 
 class ReservationController extends Controller
 {
-    public function store(Request $request)
+    public function store(ReservationRequest $request)
     {
+        $validated = $request->validated();
+
         Log::info('Store method called');
 
         $user = Auth::user();
