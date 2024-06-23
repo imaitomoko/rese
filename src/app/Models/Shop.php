@@ -59,4 +59,9 @@ class Shop extends Model
     {
         return Favorite::where('user_id', $user->id)->where('shop_id', $this->id)->exists();
     }
+
+    public function reviews() 
+    {
+        return $this->hasMany(ShopReview::class, 'shop_id', 'id');
+    }
 }

@@ -6,6 +6,8 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\ReviewController;
+
 
 
 /*
@@ -25,6 +27,7 @@ Route::get('/detail/{shop_id}', [ShopController::class, 'detail'])->name('detail
 Route::get('/thanks', function () {
     return view('thanks');
 })->name('thanks');
+Route::post('/shop/{id}/reviews', [ReviewController::class, 'store'])->name('shop.reviews.store');
 
 Route::middleware(['auth'])->post('/store', [ReservationController::class, 'store'])->name('store');
 Route::middleware(['auth'])->get('/done', [ReservationController::class, 'done'])->name('done');

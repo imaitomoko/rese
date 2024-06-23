@@ -147,6 +147,60 @@
     border-radius: 0 0 5px 5px;
 }
 
+.star-rating {
+    direction: rtl;
+    display: inline-flex;
+    font-size: 2rem;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    color: #ddd;
+    cursor: pointer;
+}
+
+.star-rating input[type="radio"]:checked~label {
+    color: #ffca08;
+}
+
+.star-rating label:hover,
+.star-rating label:hover~label,
+.star-rating input[type="radio"]:checked~label:hover,
+.star-rating input[type="radio"]:checked~label:hover~label {
+    color: #ffca08;
+}
+
+.comment_form {
+    width: 400px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    margin-right: 10px;
+}
+
+.review_button {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+textarea {
+    padding: 10px;
+    max-width: 100%;
+    line-height: 1.2;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}
+
+
 
 
 

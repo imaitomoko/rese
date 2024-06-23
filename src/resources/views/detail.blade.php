@@ -1,32 +1,5 @@
 @extends('layouts.app')
 
-<script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // 今日の日付を取得してセット
-            const dateInput = document.querySelector(".form__date");
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.value = today;
-            document.getElementById('selectedDate').innerText = today;
-
-            // 日付が変更された時の処理
-            dateInput.addEventListener('change', function() {
-                document.getElementById('selectedDate').innerText = this.value;
-            });
-
-            // 時間が変更された時の処理
-            const timeSelect = document.querySelector(".form__time");
-            timeSelect.addEventListener('change', function() {
-                document.getElementById('selectedTime').innerText = this.value;
-            });
-
-            // 人数が変更された時の処理
-            const numberSelect = document.querySelector(".form__number");
-            numberSelect.addEventListener('change', function() {
-                document.getElementById('selectedNumber').innerText = this.value + "人";
-            });
-        });
-</script>
-
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
 @endsection
@@ -48,7 +21,44 @@
             <div class="content__shop-detail">
                 <p class="content__text">{{ $shop->detail }}</p>
             </div>
+
+            <div class="content__shop-review">
+                <h3>レビューを投稿する</h3>
+                <form action="{{ route('shop.reviews.store', $shop->id) }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="stars">評価:</label>
+                        <div class="star-rating">
+                            <input type="radio" id="star5" name="stars" value="5"><label for="star5">★</label>
+                            <input type="radio" id="star4" name="stars" value="4"><label for="star4">★</label>
+                            <input type="radio" id="star3" name="stars" value="3"><label for="star3">★</label>
+                            <input type="radio" id="star2" name="stars" value="2"><label for="star2">★</label>
+                            <input type="radio" id="star1" name="stars" value="1" checked><label for="star1">★</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">コメント:</label>
+                        <textarea class=" comment_form" name="comment" id="comment" rows="4"></textarea>
+                    </div>
+                    <button class="review_button" type="submit">レビューを投稿する</button>
+                </form>
+            </div>
+
+            <div class="content__shop-reviews">
+                <h3>レビュー</h3>
+                @forelse ($shop->reviews as $review)
+                <div class="review">
+                    <p>評価: {{ $review->stars }} / 5</p>
+                    <p>{{ $review->comment }}</p>
+                    <p>投稿者: {{ $review->user->name }}</p>
+                    <p>投稿日: {{ $review->created_at->format('Y-m-d') }}</p>
+                </div>
+                @empty
+                <p>まだレビューはありません。</p>
+                @endforelse
+            </div>
         </div>
+
         <div class="content__reservation">
             <form class="reservation__form" action="{{ route('store') }}" method="POST">
                 @csrf
@@ -87,4 +97,41 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 今日の日付を取得してセット
+            const dateInput = document.querySelector(".form__date");
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.value = today;
+            document.getElementById('selectedDate').innerText = today;
+
+            // 日付が変更された時の処理
+            dateInput.addEventListener('change', function() {
+                document.getElementById('selectedDate').innerText = this.value;
+            });
+
+            // 時間が変更された時の処理
+            const timeSelect = document.querySelector(".form__time");
+            timeSelect.addEventListener('change', function() {
+                document.getElementById('selectedTime').innerText = this.value;
+            });
+
+            // 人数が変更された時の処理
+            const numberSelect = document.querySelector(".form__number");
+            numberSelect.addEventListener('change', function() {
+                document.getElementById('selectedNumber').innerText = this.value + "人";
+            });
+
+            const stars = document.querySelectorAll('.star-rating label');
+            stars.forEach(star => {
+                star.addEventListener('click', function () {
+                    const rating = this.previousElementSibling.value;
+                    alert(`評価: ${rating}が選択されました。`);
+                });
+            });
+        });
+</script>
 @endsection
