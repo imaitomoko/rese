@@ -6,9 +6,7 @@
 
 @section('content')
 <div class="thanks__content">
-    <h2>会員登録ありがとうございます</h2>
-    <div class="login">
-        <a href="{{ route('login') }}" class="login__button">ログインする</a>
-    </div>
+    <h2>会員登録ありがとうございます<br/>ご登録メールアドレスに認証メールを送りました</h2>
+    
 </div>
 @endsection
