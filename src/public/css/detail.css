@@ -55,8 +55,6 @@
     font-weight: bold;
 }
 
-.content
-
 .content__reservation {
     position: relative;
     width: 550px;
@@ -147,6 +145,24 @@
     border-radius: 0 0 5px 5px;
 }
 
+.review {
+    margin-top: 20px;
+    padding: 15px;
+    width: 530px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+h3 {
+    border-bottom: #808080 1px solid;
+}
+
+.review_button {
+    display: block;
+    margin: 20px auto;
+    cursor: pointer;
+}
+
 .star-rating {
     direction: rtl;
     display: inline-flex;
@@ -173,6 +189,10 @@
     color: #ffca08;
 }
 
+.error {
+    color: red;
+}
+
 .comment_form {
     width: 400px;
 }
@@ -186,11 +206,6 @@
     margin-right: 10px;
 }
 
-.review_button {
-    margin-top: 10px;
-    cursor: pointer;
-}
-
 textarea {
     padding: 10px;
     max-width: 100%;
@@ -198,6 +213,36 @@ textarea {
     border-radius: 5px;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px #999;
+}
+
+.review_result {
+    margin-top: 20px;
+}
+
+.review__content {
+    border: #808080 1px solid;
+    padding: 0 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.review__star {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.review__comment {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.comment__update {
+    display: flex;
+    font-size: 14px;
+}
+
+.comment__user {
+    padding-right: 20px;
 }
 
 

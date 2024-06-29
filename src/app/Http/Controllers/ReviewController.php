@@ -22,7 +22,7 @@ class ReviewController extends Controller
             $review->shop_id = $shop->id;
             $review->user_id = Auth::id();
             $review->stars = $request->input('stars');
-            $review->comment = $request->input('comment', '');  // デフォルトで空の文字列
+            $review->comment = $request->input('comment');  
             $review->save();
 
             return redirect()->back()->with('success', 'レビューが投稿されました。');

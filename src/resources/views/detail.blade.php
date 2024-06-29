@@ -22,40 +22,50 @@
                 <p class="content__text">{{ $shop->detail }}</p>
             </div>
 
-            <div class="content__shop-review">
-                <h3>レビューを投稿する</h3>
-                <form action="{{ route('shop.reviews.store', $shop->id) }}" method="POST">
+            <div class="review">
+                <div class="review__form">
+                    <h3>レビューを投稿する</h3>
+                    <form action="{{ route('shop.reviews.store', $shop->id) }}" method="POST">
                     @csrf
-                    <div class="form-group">
-                        <label for="stars">評価:</label>
-                        <div class="star-rating">
-                            <input type="radio" id="star5" name="stars" value="5"><label for="star5">★</label>
-                            <input type="radio" id="star4" name="stars" value="4"><label for="star4">★</label>
-                            <input type="radio" id="star3" name="stars" value="3"><label for="star3">★</label>
-                            <input type="radio" id="star2" name="stars" value="2"><label for="star2">★</label>
-                            <input type="radio" id="star1" name="stars" value="1" checked><label for="star1">★</label>
+                        <div class="form-group">
+                            <label for="stars">評価:</label>
+                            <div class="star-rating">
+                                <input type="radio" id="star5" name="stars" value="5"><label for="star5">★</label>
+                                <input type="radio" id="star4" name="stars" value="4"><label for="star4">★</label>
+                                <input type="radio" id="star3" name="stars" value="3"><label for="star3">★</label>
+                                <input type="radio" id="star2" name="stars" value="2"><label for="star2">★</label>
+                                <input type="radio" id="star1" name="stars" value="1" checked><label for="star1">★</label>
+                            </div>
+                            @error('stars')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">コメント:</label>
+                            <textarea class=" comment_form" name="comment" id="comment" rows="4"></textarea>
+                        </div>
+                        @error('comment')
+                            <div class="error">{{ $message }}</div>
+                        @enderror
+                        <button class="review_button" type="submit">投稿</button>
+                    </form>
+                </div>
+
+                <div class="review__result">
+                    <h3>レビュー</h3>
+                    @forelse ($shop->reviews as $review)
+                    <div class="review__content">
+                        <p class="review__star">評価: ⭐️５つのうち{{ $review->stars }}つ</p>
+                        <p class="review__comment">コメント: {{ $review->comment }}</p>
+                        <div class="comment__update">
+                            <p class="comment__user">(投稿者) {{ $review->user->name }}</p>
+                            <p class="comment__date">(投稿日) {{ $review->created_at->format('Y-m-d') }}</p>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="comment">コメント:</label>
-                        <textarea class=" comment_form" name="comment" id="comment" rows="4"></textarea>
-                    </div>
-                    <button class="review_button" type="submit">レビューを投稿する</button>
-                </form>
-            </div>
-
-            <div class="content__shop-reviews">
-                <h3>レビュー</h3>
-                @forelse ($shop->reviews as $review)
-                <div class="review">
-                    <p>評価: {{ $review->stars }} / 5</p>
-                    <p>{{ $review->comment }}</p>
-                    <p>投稿者: {{ $review->user->name }}</p>
-                    <p>投稿日: {{ $review->created_at->format('Y-m-d') }}</p>
+                    @empty
+                    <p>まだレビューはありません。</p>
+                    @endforelse
                 </div>
-                @empty
-                <p>まだレビューはありません。</p>
-                @endforelse
             </div>
         </div>
 

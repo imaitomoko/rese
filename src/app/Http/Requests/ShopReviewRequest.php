@@ -25,7 +25,20 @@ class ShopReviewRequest extends FormRequest
     {
         return [
             'stars' => 'required|integer|min:1|max:5',
-            'comment' => 'nullable|string|max:1000'
+            'comment' => 'required|string|max:200'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'stars.required' => '評価は必須です。',
+            'stars.integer' => '評価は整数でなければなりません。',
+            'stars.min' => '評価は1以上でなければなりません。',
+            'stars.max' => '評価は5以下でなければなりません。',
+            'comment.required' => 'コメントは必須です。',
+            'comment.string' => 'コメントは文字列でなければなりません。',
+            'comment.max' => 'コメントは200文字以内でなければなりません。',
         ];
     }
 }
