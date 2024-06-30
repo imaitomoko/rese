@@ -71,6 +71,10 @@ h2 {
     padding-right: 15px;
 }
 
+.card-heading_update {
+    padding-right: 15px;
+}
+
 .fa-trash {
     color: #fff;
     font-size: 1.5em;
@@ -81,6 +85,12 @@ h2 {
     color: #fff;
     cursor: pointer;
     font-size: 1.5em;
+}
+
+.fa-credit-card {
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 .delete-button {

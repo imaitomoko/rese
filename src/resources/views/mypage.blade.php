@@ -36,6 +36,11 @@ use Carbon\Carbon;
                             <i class="fas fa-edit"></i>
                             </a>
                         </div>
+                        <div class="card-heading_checkout">
+                            <a class="checkout-button" href="{{ route('checkout', ['id' => $reservation->id]) }}">
+                            <i class="fas fa-credit-card"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="form__index">
