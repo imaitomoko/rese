@@ -7,7 +7,7 @@ use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\StripeController;
+use App\Http\Controllers\ChargeController;
 
 
 
@@ -39,8 +39,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/favorite/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorite.toggle');
     Route::get('/mypage/edit/{id}', [ReservationController::class, 'edit'])->name('mypage.edit');
     Route::put('/mypage/update/{id}', [ReservationController::class, 'update'])->name('mypage.update');
-    Route::get('checkout', [StripeController::class, 'checkout'])->name('checkout');
-    Route::post('/process-payment', [StripeController::class, 'processPayment'])->name('processPayment');
+    Route::get('/checkout', [ChargeController::class, 'checkout'])->name('checkout');
+    Route::post('/charge', [ChargeController::class, 'charge'])->name('charge');
+    Route::get('/complete', [ChargeController::class, 'complete'])->name('complete');
 });
 
 

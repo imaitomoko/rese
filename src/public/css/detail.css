@@ -148,9 +148,15 @@
 .review {
     margin-top: 20px;
     padding: 15px;
-    width: 530px;
+    width: 1080px;
     background-color: #fff;
     border-radius: 5px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.review__form {
+    width: 45%;
 }
 
 h3 {
@@ -194,7 +200,7 @@ h3 {
 }
 
 .comment_form {
-    width: 400px;
+    width: 390px;
 }
 
 .form-group {
@@ -215,8 +221,8 @@ textarea {
     box-shadow: 1px 1px 1px #999;
 }
 
-.review_result {
-    margin-top: 20px;
+.review__result {
+    width: 45%;
 }
 
 .review__content {
@@ -224,6 +230,10 @@ textarea {
     padding: 0 10px;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+
+.review__content-result {
+    display: flex;
 }
 
 .review__star {
@@ -236,13 +246,19 @@ textarea {
     font-weight: bold;
 }
 
-.comment__update {
-    display: flex;
+.filled-star {
+    font-size: 24px;
+    color: gold;
+}
+
+.comment__date {
     font-size: 14px;
 }
 
 .comment__user {
     padding-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 

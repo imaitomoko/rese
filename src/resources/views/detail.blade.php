@@ -55,12 +55,18 @@
                     <h3>レビュー</h3>
                     @forelse ($shop->reviews as $review)
                     <div class="review__content">
-                        <p class="review__star">評価: ⭐️５つのうち{{ $review->stars }}つ</p>
-                        <p class="review__comment">コメント: {{ $review->comment }}</p>
-                        <div class="comment__update">
-                            <p class="comment__user">(投稿者) {{ $review->user->name }}</p>
-                            <p class="comment__date">(投稿日) {{ $review->created_at->format('Y-m-d') }}</p>
+                        <div class="review__content-result">
+                            <p class="comment__user">({{ $review->user->name }}) </p>
+                            <p class="review__star">
+                                @for ($i = 0; $i < 5; $i++)
+                                    @if ($i < $review->stars)
+                                        <span class="filled-star">★</span>
+                                    @endif
+                                @endfor
+                            </p>
                         </div>
+                        <p class="review__comment">コメント: {{ $review->comment }}</p>
+                        <p class="comment__date">(投稿日) {{ $review->created_at->format('Y-m-d') }}</p>
                     </div>
                     @empty
                     <p>まだレビューはありません。</p>

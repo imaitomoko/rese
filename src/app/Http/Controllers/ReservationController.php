@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\ReservationRequest;
+use App\Jobs\SendReminderEmail;
 
 class ReservationController extends Controller
 {
@@ -37,6 +38,17 @@ class ReservationController extends Controller
         Log::info('Reservation saved successfully');
 
         $shop = Shop::find($reservation->shop_id);
+
+        $reservationDate = Carbon::createFromFormat('Y-m-d', $reservation->date);
+        $reminderTime = $reservationDate->setTime(7, 0, 0);
+
+        if ($reminderTime->isPast()) {
+            // 予約日時が過去の場合は、直ちにリマインドメールを送信する
+            SendReminderEmail::dispatch($reservation);
+        } else {
+            // 予約日のAM7:00にリマインドメールをスケジュールする
+            SendReminderEmail::dispatch($reservation)->delay($reminderTime);
+        }
 
         return view ('done', compact('shop'));
     }
