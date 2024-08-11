@@ -1,0 +1,23 @@
+.container {
+    margin: 50px auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    margin: 30px auto;
+}
+
+.dashboard {
+    text-align: center;
+    margin: 50px auto;
+}
+
+a {
+    border-bottom: 1px solid #999;
+    cursor: pointer;
+}
+

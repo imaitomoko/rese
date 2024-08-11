@@ -1,0 +1,20 @@
+.container {
+    margin: 60px auto;
+    width: 800px;
+}
+
+.heading {
+    text-align: center;
+}
+
+.ttl {
+    text-align: center;
+}
+
+.back {
+    text-align: center;
+    border: 1px solid #999;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 10px;
+}

@@ -8,6 +8,10 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ChargeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\MailController;
+
 
 
 
@@ -42,7 +46,22 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/checkout', [ChargeController::class, 'checkout'])->name('checkout');
     Route::post('/charge', [ChargeController::class, 'charge'])->name('charge');
     Route::get('/complete', [ChargeController::class, 'complete'])->name('complete');
+    Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.login.logout');
 });
+
+Route::prefix('admin')->group(function () {
+    Route::get('/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('/login', [AdminController::class, 'login'])->name('admin.login.submit');
+});
+
+Route::middleware(['auth:admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+    Route::post('/admin/owners/register', [AdminController::class, 'registerOwner'])->name('admin.owners.register.submit');
+    Route::post('/admin/send/bulk/mail', [MailController::class, 'sendBulkMail'])->name('send.bulk.mail');
+    Route::get('/admin/send/bulk/mail', [MailController::class, 'sendBulkMail'])->name('send.bulk.mail');
+});
+
 
 
 

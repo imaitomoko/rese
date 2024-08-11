@@ -1,0 +1,86 @@
+.container {
+    margin: 60px auto;
+    width: 800px;
+}
+
+.form__heading {
+    text-align: center;
+}
+
+.owner_register {
+    width: 100%;
+    padding: 25px 35px;
+    background-color: #fff;
+    margin: 30px auto;
+    margin-bottom: 50px;
+}
+
+.ttl {
+    text-align: center;
+}
+
+.form__input-text {
+    width: 90%;
+    text-align: center;
+}
+
+.form-control {
+    width: 100%;
+    border: none;
+    outline: none;
+    border: 1px solid #999;
+    padding: 3px;
+    margin: 15px 40px;
+    font-size: 15px;
+    background-color: #E0FFFF;
+    height: 40px;
+}
+
+.form__button {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.form__button-submit {
+    width: 90%;
+    padding: 5px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background: #4169E1;
+    color: #fff;
+    cursor: pointer;
+    height: 40px;
+}
+
+.send__mail {
+    width: 100%;
+    padding: 25px 30px;
+    background-color: #fff;
+    margin: 30px auto;
+}
+
+.mail__text {
+    width: 100%;
+}
+
+textarea {
+    width: 90%;
+    border: none;
+    outline: none;
+    border: 1px solid #999;
+    padding: 3px;
+    margin: 15px 40px;
+    font-size: 15px;
+    height: 200px;
+}
+
+.logout {
+    text-align: center;
+    border: 1px solid #999;
+    margin: 20px auto;
+    background-color: #fff;
+    width: 20%;
+    padding: 10px;
+}
+
