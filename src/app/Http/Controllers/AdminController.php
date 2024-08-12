@@ -51,7 +51,11 @@ class AdminController extends Controller
     public function registerOwner(Request $request)
     {
         $form = $request->all();
-        
+    // パスワードをハッシュ化する
+        if (isset($form['password'])) {
+            $form['password'] = Hash::make($form['password']);
+        }
+
         $owner = Owner::create($form);
 
         return view('admin.owner-registered', compact('owner'));

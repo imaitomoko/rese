@@ -26,6 +26,11 @@ class Shop extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function owner()
+    {
+        return $this->belongsTo(Owner::class);
+    }
+
     public function reservations(){
         return $this->hasMany(Reservation::class);
     }

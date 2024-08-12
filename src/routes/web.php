@@ -62,6 +62,16 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/send/bulk/mail', [MailController::class, 'sendBulkMail'])->name('send.bulk.mail');
 });
 
+Route::prefix('owner')->group(function () {
+    Route::get('/login', [OwnerController::class, 'showLoginForm'])->name('owner.login');
+    Route::post('/login', [OwnerController::class, 'login'])->name('owner.login.submit');
+});
+
+Route::middleware(['auth:owner'])->group(function () {
+    Route::get('/owner/dashboard', [OwnerController::class, 'index'])->name('owner.dashboard');
+    Route::put('/owner/shop/{shop}', [OwnerController::class, 'updateShop'])->name('owner.shop.update');
+});
+
 
 
 
