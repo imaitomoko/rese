@@ -1,0 +1,72 @@
+.container {
+    margin: 60px auto;
+    width: 800px;
+}
+
+.heading {
+    text-align: center;
+}
+
+.shop {
+    width: 100%;
+    padding: 35px;
+    background-color: #fff;
+    margin: 30px auto;
+    margin-bottom: 50px;
+}
+
+.shop__ttl {
+    text-align: center;
+}
+
+.shop-table {
+    width: 80%;
+    margin: 20px auto;
+    text-align: left;
+    font-size: 16px;
+    padding-bottom: 30px;
+}
+
+.shop-table__inner {
+    width: 100%;
+}
+
+.shop-table__row {
+    border-bottom: 1px solid #ddd;
+}
+
+.shop-table__header {
+    padding: 12px;
+    width: 80%;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+
+.shop-table__item {
+    padding: 10px;
+    vertical-align: top;
+    display: flex;
+}
+
+.shop-table__header-span {
+    display: inline-block;
+    padding: 10px 0;
+    text-align: center;
+    margin-right: 20px;
+    width: 110px;
+}
+
+
+.button {
+    text-align: center;
+}
+
+.shop__button {
+    border-bottom: 1px solid darkgray;
+}
+
+.shop-table__item-data {
+    width: 110px;
+    margin-right: 25px;
+    text-align: center;
+}

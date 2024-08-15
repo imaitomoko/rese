@@ -1,0 +1,86 @@
+.container {
+    margin: 60px auto;
+    width: 800px;
+}
+
+.heading {
+    text-align: center;
+}
+
+.add-shop {
+    width: 100%;
+    padding: 30px;
+    background-color: #fff;
+    margin: 30px auto;
+    margin-bottom: 50px;
+}
+
+.add-shop__ttl {
+    text-align: center;
+}
+
+.add-shop__form {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+.form__item {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #0d0c0c;
+}
+
+.form__item-label {
+    width: 150px;
+    text-align: left;
+    align-items: baseline;
+    color: darkgrey;
+    padding-left: 15px;
+}
+
+.select {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.form__item-input {
+    width: 400px;
+    text-align: left;
+    outline: none;
+    border: none;
+}
+
+.form__button {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.form__button-submit {
+    padding: 5px;
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 3px;
+    background: #4169E1;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.form__item-textarea {
+    height: 200px;
+    width: 500px;
+    outline: none;
+    border: none;
+}
+
+.owner__dashboard {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.owner__dashboard-submit {
+    border-bottom: 1px solid hsl(0, 3%, 31%);
+}

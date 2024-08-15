@@ -70,6 +70,15 @@ Route::prefix('owner')->group(function () {
 Route::middleware(['auth:owner'])->group(function () {
     Route::get('/owner/dashboard', [OwnerController::class, 'index'])->name('owner.dashboard');
     Route::put('/owner/shop/{shop}', [OwnerController::class, 'updateShop'])->name('owner.shop.update');
+    Route::get('/owner/shop/add', [OwnerController::class, 'showAddShopForm'])->name('owner.shop.add');
+    Route::post('/owner/shop/store', [OwnerController::class, 'storeShop'])->name('owner.shop.store');
+    Route::get('/owner/shop/done', [OwnerController::class, 'showDonePage'])->name('owner.shop.done');
+    Route::get('/owner/shop/edit/{id}', [OwnerController::class, 'showEditShopForm'])->name('owner.shop.edit');
+    Route::patch('/owner/shop/update/{id}', [OwnerController::class, 'updateShop'])->name('owner.shop.update');
+    Route::get('/owner/shop/edit/done', [OwnerController::class, 'showEditDonePage'])->name('owner.shop.edit.done');
+    Route::get('/owner/reservations', [OwnerController::class, 'showReservations'])->name('owner.reservations');
+
+
 });
 
 

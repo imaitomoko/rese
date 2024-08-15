@@ -15,7 +15,8 @@ class Shop extends Model
         'category_id',
         'shop_name',
         'detail',
-        'image'
+        'image',
+        'owner_id'
     ];
     public function area()
     {

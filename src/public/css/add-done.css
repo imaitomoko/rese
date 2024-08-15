@@ -1,0 +1,25 @@
+.content {
+    margin: 60px auto;
+    width: 600px;
+}
+
+.complete_card {
+    background-color: #fff;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.owner__dashboard {
+    text-align: center;
+    margin: 50px auto;
+}
+
+.owner__dashboard-submit {
+    border-bottom: 1px solid hsl(0, 3%, 31%);
+}

@@ -11,7 +11,7 @@
         </div>
         <div class="shop">
             <div class="shop__ttl">
-                <h3>店舗情報</h3>
+                <h2>店舗情報</h2>
             </div>
             <div class="shop-table">
                 <table class="shop-table__inner">
@@ -23,7 +23,7 @@
                             <td class="shop-table__item">{{ $shop->shop_name }}</div>
                             <td class="shop-table__item">
                                 <div class="update-form__button">
-                                    <a class="update-form__button-submit" type="submit">編集</a>
+                                    <a class="update-form__button-submit" href="{{ route('owner.shop.edit', ['id' => $shop->id]) }}">編集</a>
                                 </div>
                             </td>
                         </tr>
@@ -32,10 +32,10 @@
             </div>
             <div class="button">
                 <div class="add">
-                    <a href="">店舗追加</a>
+                    <a class="shop__button" href="/owner/shop/add">店舗追加</a>
                 </div>
                 <div class="reservation">
-                    <a href="">予約一覧</a>
+                    <a class="shop__button" href="{{ route('owner.reservations') }}">予約一覧</a>
                 </div>
             </div>
         </div>
