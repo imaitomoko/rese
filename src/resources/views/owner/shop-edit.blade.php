@@ -15,7 +15,7 @@
             </div>
             <div class="edit-shop__form">
                 <form action="{{ route('owner.shop.update', ['id' => $shop->id]) }}" method="POST">
-                    @method('PATCH')
+                    @method('PUT')
                     @csrf
                     <div class="form__item">
                         <p class="form__item-label">店舗名</p>

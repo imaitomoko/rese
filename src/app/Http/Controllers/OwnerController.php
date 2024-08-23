@@ -97,6 +97,7 @@ class OwnerController extends Controller
     public function updateShop(Request $request, $id)
     {
         $owner = Auth::guard('owner')->user();
+        $shop = Shop::findOrFail($id);
     
     // バリデーション
         $request->validate([
@@ -107,20 +108,17 @@ class OwnerController extends Controller
         'detail' => 'required|string',
         ]);
 
-        $shop = Shop::find(id);
-            if ($shop && $shop->owner_id == $owner->id) {
-                $shopData = $request->only(['shop_name', 'area_id', 'category_id', 'image', 'detail']);
-                $shop->update($shopData);
+        $shop->shop_name = $request->input('shop_name');
+        $shop->area_id = $request->input('area_id');
+        $shop->category_id = $request->input('category_id');
+        $shop->image = $request->input('image');
+        $shop->detail = $request->input('detail');
+        $shop->save();
 
-                return redirect()->route('owner.shop.edit.done')->with('shop', $shop);
-            }
-        return redirect()->route('owner.shop.update')->withErrors('更新に失敗しました');
-    }
-
-    public function showEditDonePage()
-    {
         return view('owner.edit-done');
+
     }
+
 
     public function showReservations()
     {
